@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">To Do Apps</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="input_edit_title">Title</string>
+    <string name="input_edit_title_hint">write <b>title</b> here</string>
+    <string name="input_edit_description_hint">write <b>description </b> here</string>
+    <string name="input_edit_desc_title">Description</string>
+    <string name="input_edit_date_title">Deadline date</string>
+    <string name="input_edit_date_hint">chose dealine date</string>
+    <string name="input_edit_urgent_title">Choose Urgent Level</string>
+    <string name="input_edit_urgent_hint">choose urgent level</string>
+    <string name="popup_title_default">TITLE</string>
+    <string name="input_edit_save_btn">save</string>
 </resources>

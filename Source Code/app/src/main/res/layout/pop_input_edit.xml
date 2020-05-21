@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:id="@+id/popup_input_edit"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold|italic"
+                android:id="@+id/popup_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center"
+                android:text="@string/popup_title_default"
+                android:layout_centerHorizontal="true"
+                android:textSize="32sp" />
+
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:layout_below="@+id/popup_title"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_title_input_edit"
+                android:text="@string/input_edit_title"
+                />
+
+            <EditText
+                android:id="@+id/et_title_input_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_edit_title_hint"
+                android:layout_below="@+id/tv_title_input_edit"
+                />
+
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/et_title_input_edit"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_date_input_edit"
+                android:text="@string/input_edit_date_title"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearlayout_date_input_edit"
+                android:layout_below="@+id/tv_date_input_edit"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tv_date_input_edit_result"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_edit_date_hint" />
+
+                <ImageButton
+                    android:id="@+id/btn_input_edit_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@android:drawable/ic_input_add"
+                    android:background="@null"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/linearlayout_date_input_edit"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_urgent_input_edit"
+                android:text="@string/input_edit_urgent_title"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearlayout_urgent_input_edit"
+                android:layout_below="@+id/tv_urgent_input_edit"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:enabled="false"
+                    android:id="@+id/tv_urgent_input_edit_editable"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_edit_urgent_hint" />
+
+                <ImageButton
+                    android:id="@+id/btn_input_edit_urgent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@android:drawable/ic_input_add"
+                    android:background="@null"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/linearlayout_urgent_input_edit"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_description_input_edit"
+                android:text="@string/input_edit_desc_title"
+                />
+
+            <EditText
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:scrollbars="vertical"
+                android:minLines="4"
+                android:id="@+id/et_description_input_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_edit_description_hint"
+                android:layout_below="@+id/tv_description_input_edit"
+                />
+
+            <Button
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:background="@color/colorAccent"
+                android:text="@string/input_edit_save_btn"
+                android:layout_below="@+id/et_description_input_edit"
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
