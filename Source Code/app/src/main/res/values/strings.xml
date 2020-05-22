@@ -19,4 +19,10 @@
     <string name="input_edit_urgent_hint">choose urgent level</string>
     <string name="popup_title_default">TITLE</string>
     <string name="input_edit_save_btn">save</string>
+    <string name="input_edit_level_very_urgent">Very Urgent</string>
+    <string name="input_edit_level_urgent">Urgent</string>
+    <string name="input_edit_level_so_so">So So</string>
+    <string name="input_edit_level_not_importan">Not Important</string>
+    <string name="input_edit_date_description">Chose Date For Deadline The Todo</string>
+    <string name="db_drop">DROP TABLE IF EXISTS</string>
 </resources>
