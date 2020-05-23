@@ -7,6 +7,7 @@ public class DatabaseUtil {
     public static final int DATABASE_VERSION =1;
     public static final String DATABASE_NAME = "todo_db";
     public static final String TABLE_NAME ="todos";
+    public static final String INDEXT_DATE = "date_index";
 
 
     //Contact Table Column

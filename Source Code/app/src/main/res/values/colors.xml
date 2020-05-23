@@ -3,4 +3,11 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="popUpBackground">#44519e</color>
+    <color name="hintFontColor">#a1a7cd</color>
+    <color name="addbtnbackground">#2cbbed</color>
+    <color name="veryUrgent">@android:color/holo_red_light</color>
+    <color name="urgent">@android:color/holo_orange_light</color>
+    <color name="so_so">@android:color/holo_blue_bright</color>
+    <color name="not_important">#3EDC81</color>
 </resources>

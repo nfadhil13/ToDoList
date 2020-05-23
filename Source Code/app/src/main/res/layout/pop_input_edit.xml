@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical"
+
     android:id="@+id/popup_input_edit"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,16 +8,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:background="@color/popUpBackground"
             android:padding="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:textStyle="bold|italic"
                 android:id="@+id/popup_title"
                 android:layout_width="wrap_content"
@@ -28,7 +31,7 @@
                 android:textSize="32sp" />
 
             <TextView
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:layout_below="@+id/popup_title"
                 android:textSize="18sp"
                 android:layout_width="wrap_content"
@@ -38,6 +41,9 @@
                 />
 
             <EditText
+                android:textColorHint="@color/hintFontColor"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/white"
                 android:inputType="text"
                 android:id="@+id/et_title_input_edit"
                 android:layout_width="match_parent"
@@ -47,7 +53,7 @@
                 />
 
             <TextView
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="18dp"
                 android:layout_below="@+id/et_title_input_edit"
                 android:textSize="18sp"
@@ -66,9 +72,11 @@
                 >
 
                 <TextView
+                    android:textColor="@android:color/white"
                     android:id="@+id/tv_date_input_edit_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/hintFontColor"
                     android:hint="@string/input_edit_date_hint" />
 
                 <ImageButton
@@ -84,7 +92,7 @@
             </RelativeLayout>
 
             <TextView
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="18dp"
                 android:layout_below="@+id/linearlayout_date_input_edit"
                 android:textSize="18sp"
@@ -96,6 +104,9 @@
 
 
                 <RadioGroup
+                    android:outlineSpotShadowColor="@android:color/white"
+                    android:outlineAmbientShadowColor="@android:color/white"
+                    android:textColor="@android:color/white"
                     android:layout_below="@+id/tv_urgent_input_edit"
                     android:padding="12dp"
                     android:id="@+id/radio_group_urgent"
@@ -103,6 +114,8 @@
                     android:layout_height="wrap_content">
 
                     <RadioButton
+                        android:buttonTint="@color/hintFontColor"
+                        android:textColor="@android:color/white"
                         android:id="@+id/rbtn_very_urgent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -110,17 +123,23 @@
                         android:text="@string/input_edit_level_very_urgent" />
 
                     <RadioButton
+                        android:buttonTint="@color/hintFontColor"
+                        android:textColor="@android:color/white"
                         android:id="@+id/rbtn_urgent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/input_edit_level_urgent" />
 
                     <RadioButton
+                        android:buttonTint="@color/hintFontColor"
+                        android:textColor="@android:color/white"
                         android:id="@+id/rbtn_so_so"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/input_edit_level_so_so" />
                     <RadioButton
+                        android:buttonTint="@color/hintFontColor"
+                        android:textColor="@android:color/white"
                         android:id="@+id/rbtn_not_importan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -130,7 +149,7 @@
 
 
             <TextView
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="18dp"
                 android:layout_below="@+id/radio_group_urgent"
                 android:textSize="18sp"
@@ -141,6 +160,8 @@
                 />
 
             <EditText
+                android:backgroundTint="@android:color/white"
+                android:textColorHint="@color/hintFontColor"
                 android:inputType="textMultiLine"
                 android:lines="8"
                 android:scrollbars="vertical"
@@ -153,9 +174,9 @@
                 />
 
             <Button
-                android:textStyle="bold"
+
                 android:textColor="@android:color/white"
-                android:background="@color/colorAccent"
+                android:background="@color/addbtnbackground"
                 android:text="@string/input_edit_save_btn"
                 android:layout_below="@+id/et_description_input_edit"
                 android:id="@+id/btn_save"

@@ -37,7 +37,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + DatabaseUtil.KEY_DESCRIPTION + " TEXT"
                 + ")";
 
+        String CREATE_INDEXT_DATE = "CREATE INDEX " + DatabaseUtil.INDEXT_DATE + " ON "
+                + DatabaseUtil.TABLE_NAME + " (" + DatabaseUtil.KEY_DEADLINE_DATE + ")";
+
+
         db.execSQL(CREATE_TODO_TABLE);
+        db.execSQL(CREATE_INDEXT_DATE);
+
 
     }
 
@@ -104,6 +110,42 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }else{
             return null;
         }
+    }
+
+    public List<ToDo> getToDosByDate(long date){
+        List<ToDo> toDoList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(DatabaseUtil.TABLE_NAME,new String[]{DatabaseUtil.KEY_ID,
+                        DatabaseUtil.KEY_TITLE,
+                        DatabaseUtil.KEY_ADDED_DATE, DatabaseUtil.KEY_DEADLINE_DATE,
+                        DatabaseUtil.KEY_URGENT_LEVEL,DatabaseUtil.KEY_DESCRIPTION}
+                ,DatabaseUtil.KEY_DEADLINE_DATE + "=?" ,
+                new String[]{String.valueOf(date)} ,
+                null , null , null);
+
+        if(cursor.moveToFirst()){
+            do{
+                try{
+
+                    ToDo todo = new ToDo();
+                    todo.setId(cursor.getInt(0));
+                    todo.setTitle(cursor.getString(1));
+                    todo.setAddedDate(cursor.getLong(2));
+                    todo.setDeadlineDate(cursor.getLong(3));
+                    todo.setUrgentLevel(cursor.getString(4));
+                    todo.setDescription(cursor.getString(5));
+
+                    toDoList.add(todo);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    return null;
+                }
+            }while(cursor.moveToNext());
+        }
+        return toDoList;
+
     }
 
     public List<ToDo> getAllToDos(){

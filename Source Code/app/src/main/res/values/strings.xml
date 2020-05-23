@@ -25,4 +25,6 @@
     <string name="input_edit_level_not_importan">Not Important</string>
     <string name="input_edit_date_description">Chose Date For Deadline The Todo</string>
     <string name="db_drop">DROP TABLE IF EXISTS</string>
+    <string name="main_btn_pref_label">prev</string>
+    <string name="main_next_btn_label">next</string>
 </resources>

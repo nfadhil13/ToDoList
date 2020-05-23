@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_urgent_level_Show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#3C3434"
+                android:text="@string/input_edit_level_very_urgent"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_cardview_todo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/urgent"
+                android:padding="18dp">
+
+
+                <ImageView
+                    android:id="@+id/imgView_show_image"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_centerVertical="true"
+                    tools:srcCompat="@tools:sample/avatars" />>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_toRightOf="@+id/imgView_show_image"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_title_show"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Title"
+                        android:textColor="#EDEDED"
+                        android:textSize="24sp"
+                        android:textStyle="bold|italic" />
+
+
+                    <TextView
+                        android:id="@+id/tv_desc_show"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_title_show"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="3"
+                        android:minLines="3"
+                        android:scrollbars="vertical"
+                        android:text="Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#3C3434">
+
+                <TextView
+                    android:id="@+id/tv_added_date_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="added date : 25 Jun 2019"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/tv_deadline_date_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="deadline date : 26 Jun 2019"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

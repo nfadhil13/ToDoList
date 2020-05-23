@@ -2,10 +2,14 @@ package com.fdev.todoapps;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.fdev.todoapps.adapter.RecycleViewAdapter;
 import com.fdev.todoapps.data.DatabaseHandler;
 import com.fdev.todoapps.model.ToDo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,7 +18,10 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,10 +36,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton mSoSoRadioButton;
     private RadioButton mNotImportantRadioButton;
 
+    private RecyclerView mRecycleView;
+
+    private RecycleViewAdapter mRecyclerViewAdapter;
+
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
     private Calendar mChoosenDate;
@@ -67,48 +82,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
+
+        mRecycleView = findViewById(R.id.todo_recyleview);
+        mRecycleView.setHasFixedSize(true);
+        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
 
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
 
         db = new DatabaseHandler(this);
 
-        List<ToDo> toDoList = db.getAllToDos();
-        for(ToDo todo : toDoList){
+        mRecyclerViewAdapter = new RecycleViewAdapter(this,db.getAllToDos());
 
-            Date date = new Date();
-            date.setTime(todo.getAddedDate());
-            Date deadlineDate = new Date();
-            deadlineDate.setTime(todo.getDeadlineDate());
-
-
-            System.out.println("==========================");
-            System.out.println("id : " + todo.getId());
-            System.out.println("Title : " + todo.getTitle());
-            System.out.println("Added Date : "   + " : " + dateFormatter.format(date));
-            System.out.println("Deadline Date : " + dateFormatter.format(deadlineDate));
-            System.out.println("Urgent Level : " + todo.getUrgentLevel());
-            System.out.println("Desc : " + todo.getDescription());
+        mRecycleView.setAdapter(mRecyclerViewAdapter);
 
         }
 
 
+
+    private void refreshList(){
+        mRecyclerViewAdapter = new RecycleViewAdapter(this,db.getAllToDos());
+
+        mRecycleView.setAdapter(mRecyclerViewAdapter);
+
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        Context context = this;
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbalar_menu,menu);
-        return true;
-    }
 
 
     @Override
@@ -125,12 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_save:
-                View view = getLayoutInflater().inflate(R.layout.pop_input_edit,null);
-                if(saveToDo(view)){
-                    Toast.makeText(this,"Succes Add To Do",Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(this,"Fail Add To Do",Toast.LENGTH_LONG).show();
-                }
+                saveToDo(v);
                 break;
 
 
@@ -170,9 +167,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private boolean saveToDo(View view){
+    private void saveToDo(View parentView){
+        if(!mTitleEditText.getText().toString().isEmpty()){
+            if(mChoosenDate != null){
+                View view = getLayoutInflater().inflate(R.layout.pop_input_edit,null);
+                if(saveToDotoDB(view)){
+                    Toast.makeText(this,"Succes Add To Do",Toast.LENGTH_LONG).show();
+                    mChoosenDate = null;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mDialog.dismiss();
+                            //refreshList();
+
+                        }
+                    },1000);
+
+                }else{
+                    Toast.makeText(this,"Fail Add To Do",Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Snackbar.make(parentView,"Choose Valid Date" , Snackbar.LENGTH_LONG).show();
+            }
+        }else{
+            Snackbar.make(parentView,"Title not allowed to be empty" , Snackbar.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean saveToDotoDB(View view){
 
         String toDoTitle = mTitleEditText.getText().toString();
+
+
 
         long toDoDeadlineDate = mChoosenDate.getTimeInMillis();
 
@@ -181,7 +208,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String toDoUrgent  = ((RadioButton)view.findViewById(choosenRadioButton)).getText().toString();
 
 
-        String toDoDesc = mDescEditText.getText().toString();
+        String toDoDesc;
+        if(mDescEditText.getText().toString().isEmpty()){
+            toDoDesc= "";
+        }else{
+            toDoDesc = mDescEditText.getText().toString();
+        }
+
 
         ToDo newToDo = new ToDo();
         newToDo.setTitle(toDoTitle);
@@ -219,6 +252,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                  */
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
+                newDate.set(Calendar.HOUR, 0);
+                newDate.set(Calendar.MINUTE, 0);
+                newDate.set(Calendar.SECOND, 0);
+                newDate.set(Calendar.MILLISECOND,0);
 
                 if(newDate.after(newCalendar)){
                     /**
