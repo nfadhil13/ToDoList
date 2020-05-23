@@ -12,181 +12,188 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:background="@color/popUpBackground"
-            android:padding="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:textStyle="bold|italic"
-                android:id="@+id/popup_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:gravity="center"
-                android:text="@string/popup_title_default"
-                android:layout_centerHorizontal="true"
-                android:textSize="32sp" />
+           <RelativeLayout
+               android:scrollbars="vertical"
+               android:background="@color/popUpBackground"
+               android:padding="24dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_below="@+id/popup_title"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_title_input_edit"
-                android:text="@string/input_edit_title"
-                />
+               <TextView
+                   android:textColor="@android:color/white"
+                   android:textStyle="bold|italic"
+                   android:id="@+id/popup_title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginBottom="18dp"
+                   android:gravity="center"
+                   android:text="@string/popup_title_default"
+                   android:layout_centerHorizontal="true"
+                   android:textSize="32sp" />
 
-            <EditText
-                android:textColorHint="@color/hintFontColor"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@android:color/white"
-                android:inputType="text"
-                android:id="@+id/et_title_input_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/input_edit_title_hint"
-                android:layout_below="@+id/tv_title_input_edit"
-                />
+               <TextView
+                   android:textColor="@android:color/white"
+                   android:layout_below="@+id/popup_title"
+                   android:textSize="18sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/tv_title_input_edit"
+                   android:text="@string/input_edit_title"
+                   />
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_marginTop="18dp"
-                android:layout_below="@+id/et_title_input_edit"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_date_input_edit"
-                android:text="@string/input_edit_date_title"
-                />
+               <EditText
+                   android:textColorHint="@color/hintFontColor"
+                   android:backgroundTint="@android:color/white"
+                   android:textColor="@android:color/white"
+                   android:inputType="text"
+                   android:id="@+id/et_title_input_edit"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/input_edit_title_hint"
+                   android:layout_below="@+id/tv_title_input_edit"
+                   />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearlayout_date_input_edit"
-                android:layout_below="@+id/tv_date_input_edit"
-                android:orientation="horizontal"
-                >
+               <TextView
+                   android:textColor="@android:color/white"
+                   android:layout_marginTop="18dp"
+                   android:layout_below="@+id/et_title_input_edit"
+                   android:textSize="18sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/tv_date_input_edit"
+                   android:text="@string/input_edit_date_title"
+                   />
 
-                <TextView
-                    android:textColor="@android:color/white"
-                    android:id="@+id/tv_date_input_edit_result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/hintFontColor"
-                    android:hint="@string/input_edit_date_hint" />
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/linearlayout_date_input_edit"
+                   android:layout_below="@+id/tv_date_input_edit"
+                   android:orientation="horizontal"
+                   >
 
-                <ImageButton
-                    android:layout_alignParentRight="true"
-                    android:contentDescription="@string/input_edit_date_description"
-                    android:id="@+id/btn_input_edit_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/outline_add_black_24"
-                    android:background="@null"
-                    />
+                   <TextView
+                       android:textColor="@android:color/white"
+                       android:id="@+id/tv_date_input_edit_result"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textColorHint="@color/hintFontColor"
+                       android:hint="@string/input_edit_date_hint" />
 
-            </RelativeLayout>
+                   <ImageButton
+                       android:layout_alignParentRight="true"
+                       android:contentDescription="@string/input_edit_date_description"
+                       android:id="@+id/btn_input_edit_date"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       app:srcCompat="@drawable/outline_add_black_24"
+                       android:background="@null"
+                       />
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_marginTop="18dp"
-                android:layout_below="@+id/linearlayout_date_input_edit"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_urgent_input_edit"
-                android:text="@string/input_edit_urgent_title"
-                />
+               </RelativeLayout>
 
-
-                <RadioGroup
-                    android:outlineSpotShadowColor="@android:color/white"
-                    android:outlineAmbientShadowColor="@android:color/white"
-                    android:textColor="@android:color/white"
-                    android:layout_below="@+id/tv_urgent_input_edit"
-                    android:padding="12dp"
-                    android:id="@+id/radio_group_urgent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:buttonTint="@color/hintFontColor"
-                        android:textColor="@android:color/white"
-                        android:id="@+id/rbtn_very_urgent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="@string/input_edit_level_very_urgent" />
-
-                    <RadioButton
-                        android:buttonTint="@color/hintFontColor"
-                        android:textColor="@android:color/white"
-                        android:id="@+id/rbtn_urgent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/input_edit_level_urgent" />
-
-                    <RadioButton
-                        android:buttonTint="@color/hintFontColor"
-                        android:textColor="@android:color/white"
-                        android:id="@+id/rbtn_so_so"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/input_edit_level_so_so" />
-                    <RadioButton
-                        android:buttonTint="@color/hintFontColor"
-                        android:textColor="@android:color/white"
-                        android:id="@+id/rbtn_not_importan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/input_edit_level_not_importan" />
-
-                </RadioGroup>
+               <TextView
+                   android:textColor="@android:color/white"
+                   android:layout_marginTop="18dp"
+                   android:layout_below="@+id/linearlayout_date_input_edit"
+                   android:textSize="18sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/tv_urgent_input_edit"
+                   android:text="@string/input_edit_urgent_title"
+                   />
 
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_marginTop="18dp"
-                android:layout_below="@+id/radio_group_urgent"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_description_input_edit"
-                android:text="@string/input_edit_desc_title"
-                />
+               <RadioGroup
+                   android:outlineSpotShadowColor="@android:color/white"
+                   android:outlineAmbientShadowColor="@android:color/white"
+                   android:textColor="@android:color/white"
+                   android:layout_below="@+id/tv_urgent_input_edit"
+                   android:padding="12dp"
+                   android:id="@+id/radio_group_urgent"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
 
-            <EditText
-                android:backgroundTint="@android:color/white"
-                android:textColorHint="@color/hintFontColor"
-                android:inputType="textMultiLine"
-                android:lines="8"
-                android:scrollbars="vertical"
-                android:minLines="4"
-                android:id="@+id/et_description_input_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/input_edit_description_hint"
-                android:layout_below="@+id/tv_description_input_edit"
-                />
+                   <RadioButton
+                       android:buttonTint="@color/hintFontColor"
+                       android:textColor="@android:color/white"
+                       android:id="@+id/rbtn_very_urgent"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:checked="true"
+                       android:text="@string/input_edit_level_very_urgent" />
 
-            <Button
+                   <RadioButton
+                       android:buttonTint="@color/hintFontColor"
+                       android:textColor="@android:color/white"
+                       android:id="@+id/rbtn_urgent"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/input_edit_level_urgent" />
 
-                android:textColor="@android:color/white"
-                android:background="@color/addbtnbackground"
-                android:text="@string/input_edit_save_btn"
-                android:layout_below="@+id/et_description_input_edit"
-                android:id="@+id/btn_save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_centerHorizontal="true"
-                />
+                   <RadioButton
+                       android:buttonTint="@color/hintFontColor"
+                       android:textColor="@android:color/white"
+                       android:id="@+id/rbtn_so_so"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/input_edit_level_so_so" />
+                   <RadioButton
+                       android:buttonTint="@color/hintFontColor"
+                       android:textColor="@android:color/white"
+                       android:id="@+id/rbtn_not_importan"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/input_edit_level_not_importan" />
 
-        </RelativeLayout>
+               </RadioGroup>
+
+
+               <TextView
+                   android:textColor="@android:color/white"
+                   android:layout_marginTop="18dp"
+                   android:layout_below="@+id/radio_group_urgent"
+                   android:textSize="18sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/tv_description_input_edit"
+                   android:text="@string/input_edit_desc_title"
+                   />
+
+               <EditText
+                   android:backgroundTint="@android:color/white"
+                   android:textColorHint="@color/hintFontColor"
+                   android:inputType="textMultiLine"
+                   android:lines="8"
+                   android:scrollbars="vertical"
+                   android:minLines="4"
+                   android:id="@+id/et_description_input_edit"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/input_edit_description_hint"
+                   android:layout_below="@+id/tv_description_input_edit"
+                   />
+
+               <Button
+
+                   android:textColor="@android:color/white"
+                   android:background="@color/addbtnbackground"
+                   android:text="@string/input_edit_save_btn"
+                   android:layout_below="@+id/et_description_input_edit"
+                   android:id="@+id/btn_save"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="12dp"
+                   android:layout_centerHorizontal="true"
+                   />
+
+           </RelativeLayout>
+
+       </ScrollView>
 
     </androidx.cardview.widget.CardView>
 
