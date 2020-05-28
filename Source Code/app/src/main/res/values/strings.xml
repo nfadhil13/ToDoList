@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">To Do Apps</string>
+    <string name="app_name">Do Things</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -10,8 +10,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="input_edit_title">Title</string>
-    <string name="input_edit_title_hint">write <b>title</b> here</string>
-    <string name="input_edit_description_hint">write <b>description </b> here</string>
+    <string name="input_edit_title_hint">write title  here</string>
+    <string name="input_edit_description_hint">write description here</string>
     <string name="input_edit_desc_title">Description</string>
     <string name="input_edit_date_title">Deadline date</string>
     <string name="input_edit_date_hint">chose dealine date</string>
@@ -24,7 +24,12 @@
     <string name="input_edit_level_so_so">So So</string>
     <string name="input_edit_level_not_importan">Not Important</string>
     <string name="input_edit_date_description">Chose Date For Deadline The Todo</string>
-    <string name="db_drop">DROP TABLE IF EXISTS</string>
+    <string name="db_drop">DROP TABLE IF EXISTS </string>
     <string name="main_btn_pref_label">prev</string>
     <string name="main_next_btn_label">next</string>
+    <string name="today_label">Today</string>
+    <string name="date_example_label">Wednesday 25,Dec 2019</string>
+    <string name="empty_label">Nothing to do on This Date</string>
+    <string name="input_edit_time_title">Starting Time</string>
+    <string name="input_edit_time_hint">23:59</string>
 </resources>

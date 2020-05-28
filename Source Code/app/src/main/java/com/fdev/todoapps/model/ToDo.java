@@ -4,26 +4,30 @@ public class ToDo {
 
     private int id;
     private String title;
-    private String description;
+    private int hour;
+    private int minute;
     private String urgentLevel;
     private long addedDate;
     private long deadlineDate;
 
+
     public ToDo() {
     }
 
-    public ToDo(String title, String description, String urgentLevel, long addedDate, long deadlineDate) {
+    public ToDo(String title, String description, int hour, int minute, String urgentLevel, long addedDate, long deadlineDate) {
         this.title = title;
-        this.description = description;
+        this.hour = hour;
+        this.minute = minute;
         this.urgentLevel = urgentLevel;
         this.addedDate = addedDate;
         this.deadlineDate = deadlineDate;
     }
 
-    public ToDo(int id, String title, String description, String urgentLevel, long addedDate, long deadlineDate) {
+    public ToDo(int id, String title, String description, int hour, int minute, String urgentLevel, long addedDate, long deadlineDate) {
         this.id = id;
         this.title = title;
-        this.description = description;
+        this.hour = hour;
+        this.minute = minute;
         this.urgentLevel = urgentLevel;
         this.addedDate = addedDate;
         this.deadlineDate = deadlineDate;
@@ -45,12 +49,22 @@ public class ToDo {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+
+
+    public int getHour() {
+        return hour;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 
     public String getUrgentLevel() {

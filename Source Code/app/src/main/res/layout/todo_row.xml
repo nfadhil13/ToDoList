@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp">
 
     <androidx.cardview.widget.CardView
-
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="0dp"
@@ -16,97 +16,102 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_urgent_level_Show"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#3C3434"
-                android:text="@string/input_edit_level_very_urgent"
-                android:textAlignment="center"
-                android:textColor="@android:color/white" />
 
             <RelativeLayout
                 android:id="@+id/relativeLayout_cardview_todo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/urgent"
                 android:padding="18dp">
 
+            <LinearLayout
+                android:id="@+id/urgent_wrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
 
                 <ImageView
                     android:id="@+id/imgView_show_image"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_centerVertical="true"
-                    tools:srcCompat="@tools:sample/avatars" />>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/tv_urgent_level_Show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:alpha="0.5"
+                    android:text="Very Urgent"
+                    android:textColor="@android:color/black"
+                    android:textSize="8sp"
+
+                    />
+            </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="36dp"
-                    android:layout_toRightOf="@+id/imgView_show_image"
-                    android:gravity="center">
+                    android:layout_toRightOf="@+id/urgent_wrapper"
+                    android:layout_centerVertical="true">
 
                     <TextView
                         android:id="@+id/tv_title_show"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Title"
-                        android:textColor="#EDEDED"
-                        android:textSize="24sp"
-                        android:textStyle="bold|italic" />
+                        android:text="Eat Breakfast"
+                        android:fontFamily="@font/questrial"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
 
                     <TextView
-                        android:id="@+id/tv_desc_show"
+                        android:id="@+id/tv_deadline_date_show"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_title_show"
                         android:layout_marginTop="8dp"
-                        android:maxLines="3"
-                        android:minLines="3"
+                        android:maxLines="1"
+                        android:alpha="0.5"
                         android:scrollbars="vertical"
-                        android:text="Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla Jangan lupa membuat bla bla"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
+                        android:text="Dec 25 , 2019 (Urgent)"
+                        android:textColor="@android:color/black"
+                        android:textSize="8sp" />
 
                 </RelativeLayout>
 
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#3C3434">
-
-                <TextView
-                    android:id="@+id/tv_added_date_show"
+                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:text="added date : 25 Jun 2019"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white" />
+                    android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/tv_deadline_date_show"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                <ImageButton
                     android:layout_alignParentRight="true"
-                    android:text="deadline date : 26 Jun 2019"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white" />
+                    android:id="@+id/btn_mark_as_done"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@null"
+                    android:src="@drawable/done_icon" />
 
+                <ImageButton
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/btn_mark_as_done"
+                    android:background="@null"
+                    android:src="@drawable/edit_icon"
+                    android:id="@+id/btn_edit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+
+                    />
 
             </RelativeLayout>
 
-        </LinearLayout>
+
+
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

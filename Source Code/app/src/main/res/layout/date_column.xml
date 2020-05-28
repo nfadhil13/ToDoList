@@ -1,0 +1,386 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_sunday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_sunday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_sunday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_sunday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_sunday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_sunday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_sunday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_monday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_monday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_monday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_monday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_monday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_monday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_monday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_tuesday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_tuesday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_tuesday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_tuesday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_tuesday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_tuesday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_wednesday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_wednesday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_wednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_wednesday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_wednesday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_wednesday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_wednesday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_thursday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_thursday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_thursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_thursday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_thursday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_thursday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_thursday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_friday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_friday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_friday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_friday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_friday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_friday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_friday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/space_mono"
+            android:id="@+id/tv_day_intial_header_saturday"
+            android:textColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="5dp"
+                android:id="@+id/header_date_cardView_bg_saturday"
+                android:layout_width="28dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.5"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:elevation="10dp"
+                android:id="@+id/tv_date_number_header_saturday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="1.0"
+                android:fontFamily="@font/space_mono"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/header_date_cardView_bg_saturday"
+                app:layout_constraintEnd_toEndOf="@+id/header_date_cardView_bg_saturday"
+                app:layout_constraintStart_toStartOf="@+id/header_date_cardView_bg_saturday"
+                app:layout_constraintTop_toTopOf="@+id/header_date_cardView_bg_saturday" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

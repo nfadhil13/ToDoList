@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -27,19 +28,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println("Cinta");
 
         String CREATE_TODO_TABLE = "CREATE TABLE " + DatabaseUtil.TABLE_NAME + "("
                 + DatabaseUtil.KEY_ID + " INTEGER PRIMARY KEY,"
                 + DatabaseUtil.KEY_TITLE + " TEXT,"
                 + DatabaseUtil.KEY_ADDED_DATE + " LONG,"
                 + DatabaseUtil.KEY_DEADLINE_DATE + " LONG,"
-                + DatabaseUtil.KEY_URGENT_LEVEL + " TEXT,"
-                + DatabaseUtil.KEY_DESCRIPTION + " TEXT"
+                + DatabaseUtil.KEY_HOUR + " INTEGER,"
+                + DatabaseUtil.KEY_MIN + " INTEGER,"
+                + DatabaseUtil.KEY_URGENT_LEVEL + " TEXT"
                 + ")";
 
         String CREATE_INDEXT_DATE = "CREATE INDEX " + DatabaseUtil.INDEXT_DATE + " ON "
                 + DatabaseUtil.TABLE_NAME + " (" + DatabaseUtil.KEY_DEADLINE_DATE + ")";
-
+        Log.d("Database Made", "Database");
 
         db.execSQL(CREATE_TODO_TABLE);
         db.execSQL(CREATE_INDEXT_DATE);
@@ -49,13 +52,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String DROP_TABLE = String.valueOf(R.string.db_drop);
-        db.execSQL(DROP_TABLE, new String[]{DatabaseUtil.DATABASE_NAME});
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseUtil.TABLE_NAME);
+        Log.d("Database Made", "Database");
 
 
         //Create a Table Again
         onCreate(db);
     }
+
+
 
     public boolean addToDo(ToDo todo){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -64,8 +69,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(DatabaseUtil.KEY_TITLE,todo.getTitle());
         values.put(DatabaseUtil.KEY_ADDED_DATE,System.currentTimeMillis());
         values.put(DatabaseUtil.KEY_DEADLINE_DATE,todo.getDeadlineDate());
+        values.put(DatabaseUtil.KEY_HOUR,todo.getHour());
+        values.put(DatabaseUtil.KEY_MIN,todo.getMinute());
         values.put(DatabaseUtil.KEY_URGENT_LEVEL,todo.getUrgentLevel());
-        values.put(DatabaseUtil.KEY_DESCRIPTION,todo.getDescription());
 
         Long addedCheck= Long.valueOf(-1);
         try{
@@ -90,7 +96,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(DatabaseUtil.TABLE_NAME,new String[]{DatabaseUtil.KEY_ID,
                         DatabaseUtil.KEY_TITLE,
                         DatabaseUtil.KEY_ADDED_DATE, DatabaseUtil.KEY_DEADLINE_DATE,
-                        DatabaseUtil.KEY_URGENT_LEVEL,DatabaseUtil.KEY_DESCRIPTION}
+                        DatabaseUtil.KEY_HOUR , DatabaseUtil.KEY_MIN,
+                        DatabaseUtil.KEY_URGENT_LEVEL}
                 ,DatabaseUtil.KEY_ID + "=?" ,
                 new String[]{String.valueOf(id)} ,
                 null , null , null);
@@ -102,8 +109,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             todo.setTitle(cursor.getString(1));
             todo.setAddedDate(cursor.getLong(2));
             todo.setDeadlineDate(cursor.getLong(3));
-            todo.setUrgentLevel(cursor.getString(4));
-            todo.setDescription(cursor.getString(5));
+            todo.setHour(cursor.getInt(4));
+            todo.setMinute(cursor.getInt(5));
+            todo.setUrgentLevel(cursor.getString(6));
 
 
             return todo;
@@ -120,10 +128,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(DatabaseUtil.TABLE_NAME,new String[]{DatabaseUtil.KEY_ID,
                         DatabaseUtil.KEY_TITLE,
                         DatabaseUtil.KEY_ADDED_DATE, DatabaseUtil.KEY_DEADLINE_DATE,
-                        DatabaseUtil.KEY_URGENT_LEVEL,DatabaseUtil.KEY_DESCRIPTION}
+                        DatabaseUtil.KEY_HOUR , DatabaseUtil.KEY_MIN,
+                        DatabaseUtil.KEY_URGENT_LEVEL}
                 ,DatabaseUtil.KEY_DEADLINE_DATE + "=?" ,
                 new String[]{String.valueOf(date)} ,
-                null , null , null);
+                null , null , DatabaseUtil.KEY_ADDED_DATE);
 
         if(cursor.moveToFirst()){
             do{
@@ -134,8 +143,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     todo.setTitle(cursor.getString(1));
                     todo.setAddedDate(cursor.getLong(2));
                     todo.setDeadlineDate(cursor.getLong(3));
-                    todo.setUrgentLevel(cursor.getString(4));
-                    todo.setDescription(cursor.getString(5));
+                    todo.setHour(cursor.getInt(4));
+                    todo.setMinute(cursor.getInt(5));
+                    todo.setUrgentLevel(cursor.getString(6));
+
 
                     toDoList.add(todo);
                 }catch (Exception e){
@@ -165,8 +176,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     todo.setTitle(cursor.getString(1));
                     todo.setAddedDate(cursor.getLong(2));
                     todo.setDeadlineDate(cursor.getLong(3));
-                    todo.setUrgentLevel(cursor.getString(4));
-                    todo.setDescription(cursor.getString(5));
+                    todo.setHour(cursor.getInt(4));
+                    todo.setMinute(cursor.getInt(5));
+                    todo.setUrgentLevel(cursor.getString(6));
+
 
                     toDoList.add(todo);
                 }catch (Exception e){
@@ -184,10 +197,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(DatabaseUtil.KEY_TITLE,todo.getTitle());
-        values.put(DatabaseUtil.KEY_ADDED_DATE,todo.getAddedDate());
+        values.put(DatabaseUtil.KEY_ADDED_DATE,System.currentTimeMillis());
         values.put(DatabaseUtil.KEY_DEADLINE_DATE,todo.getDeadlineDate());
+        values.put(DatabaseUtil.KEY_HOUR,todo.getHour());
+        values.put(DatabaseUtil.KEY_MIN,todo.getMinute());
         values.put(DatabaseUtil.KEY_URGENT_LEVEL,todo.getUrgentLevel());
-        values.put(DatabaseUtil.KEY_DESCRIPTION,todo.getDescription());
 
         try{
             return db.update(DatabaseUtil.TABLE_NAME,values,DatabaseUtil.KEY_ID + "=?" ,
